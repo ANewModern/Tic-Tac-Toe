@@ -1,0 +1,16 @@
+.row {
+  display: flex;
+  width: 75vh;
+  height: 20vh;
+}
+
+.box {
+  height: 20vh;
+  width: 25vh;
+  border: 2px black solid;
+}
+
+.X-box, .O-box, .R-box {
+  height: 10vh;
+  width: 25vh;
+}
