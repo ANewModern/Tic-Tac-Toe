@@ -1,4 +1,4 @@
--------------------------------------------------------------------------------------------------------------------------
+//-------------------------------------------------------------------------------------------------------------------------
 
 const boxes = document.querySelectorAll(".box"); //array of all the divs with a class of .box
 const choice = document.querySelectorAll(".choose"); //array of the divs with a letter to choose from
@@ -12,7 +12,7 @@ let letterChosen = false; //flag that checks if a letter is set to start filling
 let gameReady = true; //flag that indicates that game is playable;
 let grid = [0, 0, 0, 0, 0, 0, 0, 0, 0]; //array of the moves the players make
 
--------------------------------------------------------------------------------------------------------------------------
+//-------------------------------------------------------------------------------------------------------------------------
 
 function onClick() { //function for filling grid
   let i = 0; //var for increments in forEach in fn onClick
@@ -195,7 +195,7 @@ function resetGame(){ //function to reset game
   row.innerHTML = ""; //removes reset button
 }
 
------------------------------------------------------------------------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------------------------------------------------------------------
 
 choice.forEach(choose => choose.addEventListener("click", setLetter)); //sets an event listener to each of the divs on the grid
 boxes.forEach(box => box.addEventListener("click", onClick)); //sets an event listener to the letters
