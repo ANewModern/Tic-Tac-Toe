@@ -1,7 +1,18 @@
+* {
+  text-align: center;
+}
+
 .row {
   display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  margin: auto;
   width: 75vh;
   height: 20vh;
+}
+
+.win-row, .choose-row {
+  height: 10vh;
 }
 
 .box {
@@ -10,7 +21,12 @@
   border: 2px black solid;
 }
 
-.X-box, .O-box, .R-box {
+.X-box, .O-box, .R-box, .title-box {
   height: 10vh;
   width: 25vh;
+}
+
+.title-text {
+  font-size: 30px;
+  font-weight: bold;
 }
