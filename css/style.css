@@ -1,5 +1,17 @@
 * {
+  font-family: 'Open Sans', sans-serif;
+}
+
+p {}
+
+.win-row {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
   text-align: center;
+  margin: auto;
+  width: 100vh;
+  height: 16vh;
 }
 
 .row {
@@ -11,8 +23,36 @@
   height: 20vh;
 }
 
-.win-row, .choose-row {
+.choose-row {
   height: 10vh;
+}
+
+.box, .X-box, .O-box, .R-box, .title-box {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+.title-text {
+  font-size: 130px;
+  font-weight: bold;
+}
+
+.X, .O {
+  font-size: 150px;
+}
+
+.player-text {
+  color: green;
+}
+
+.ai-text {
+  color: red;
+}
+
+.choice-text, .R-box {
+  font-size: 50px;
 }
 
 .box {
@@ -21,12 +61,20 @@
   border: 2px black solid;
 }
 
-.X-box, .O-box, .R-box, .title-box {
-  height: 10vh;
-  width: 25vh;
+.title-box {
+  border: 1px black solid;
 }
 
-.title-text {
-  font-size: 30px;
-  font-weight: bold;
+.X-box, .O-box, .R-box {
+  height: 10vh;
+  width: 25vh;
+  cursor: pointer;
+}
+
+.green {
+  background: green;
+}
+
+.red {
+  background: red;
 }

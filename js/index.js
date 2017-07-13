@@ -22,7 +22,7 @@ function onClick() { //function for filling grid
       if (this === box && grid[i] === 0) { //checks what div was clicked and checks if it hasnt been filled
         grid[i] = letter;
         console.log("in " + i + " tehe", grid);
-        boxes[i].innerHTML = `<span class=${letter}>${letter}</span>`;
+        boxes[i].innerHTML = `<span class="${letter} player-text">${letter}</span>`;
         checkWin(); //runs check to see if player won
         ai(); //runs ai move of the player has not won
       }
@@ -67,12 +67,18 @@ function onClick() { //function for filling grid
 function setLetter() { //fn. to check what letter was chosen, then sets the letterChosen to true and sets the letter for the AI
   if (!letterChosen) {
     if (this === choice[0]) {
+      console.log("Got X");
       letter = "X";
+      choice[0].style.backgroundColor = "green";
+      choice[1].style.backgroundColor = "red";
       letterAI = "O";
       letterChosen = !letterChosen;
       console.log(letter);
     } else if (this === choice[1]) {
       letter = "O";
+      console.log("Got O");
+      choice[0].style.backgroundColor = "red";
+      choice[1].style.backgroundColor = "green";
       letterAI = "X";
       letterChosen = !letterChosen;
       console.log(letter);
@@ -86,63 +92,63 @@ function checkWin() { //fn to check if someone has won
     if (grid[0] === x && grid[1] === x && grid[2] === x) { //horizontal
       console.log(x + " Wins!");
       row.innerHTML = "<div class='R-box'>RESET</div>";
-      win.innerHTML = `<div class="title-box"><span class="title-text">${x} WINS!</span></div>`;
+      win.innerHTML = `<p class="title-text">${x} WINS!</p>`;
       reset = document.querySelector(".R-box");
       gameReady = false; //flag to indicate game is over
       reset.addEventListener("click", resetGame); //resets the game
     } else if (grid[3] === x && grid[4] === x && grid[5] === x) { //horizontal
       console.log(x + " Wins!");
       row.innerHTML = "<div class='R-box'>RESET</div>";
-      win.innerHTML = `<div class="title-box"><span class="title-text">${x} WINS!</span></div>`;
+      win.innerHTML = `<p class="title-text">${x} WINS!</p>`;
       reset = document.querySelector(".R-box");
       gameReady = false;
       reset.addEventListener("click", resetGame); //resets the game
     } else if (grid[6] === x && grid[7] === x && grid[8] === x) { //horizontal
       console.log(x + " Wins!");
       row.innerHTML = "<div class='R-box'>RESET</div>";
-      win.innerHTML = `<div class="title-box"><span class="title-text">${x} WINS!</span></div>`;
+      win.innerHTML = `<p class="title-text">${x} WINS!</p>`;
       reset = document.querySelector(".R-box");
       gameReady = false;
       reset.addEventListener("click", resetGame); //resets the game
     } else if (grid[0] === x && grid[3] === x && grid[6] === x) { //vertical
       console.log(x + " Wins!");
       row.innerHTML = "<div class='R-box'>RESET</div>";
-      win.innerHTML = `<div class="title-box"><span class="title-text">${x} WINS!</span></div>`;
+      win.innerHTML = `<p class="title-text">${x} WINS!</p>`;
       reset = document.querySelector(".R-box");
       gameReady = false;
       reset.addEventListener("click", resetGame); //resets the game
     } else if (grid[1] === x && grid[4] === x && grid[7] === x) { //vertical
       console.log(x + " Wins!");
       row.innerHTML = "<div class='R-box'>RESET</div>";
-      win.innerHTML = `<div class="title-box"><span class="title-text">${x} WINS!</span></div>`;
+      win.innerHTML = `<p class="title-text">${x} WINS!</p>`;
       reset = document.querySelector(".R-box");
       gameReady = false;
       reset.addEventListener("click", resetGame); //resets the game
     } else if (grid[2] === x && grid[5] === x && grid[8] === x) { //vertical
       console.log(x + " Wins!");
       row.innerHTML = "<div class='R-box'>RESET</div>";
-      win.innerHTML = `<div class="title-box"><span class="title-text">${x} WINS!</span></div>`;
+      win.innerHTML = `<p class="title-text">${x} WINS!</p>`;
       reset = document.querySelector(".R-box");
       gameReady = false;
       reset.addEventListener("click", resetGame); //resets the game
     } else if (grid[0] === x && grid[4] === x && grid[8] === x) { //diagonal
       console.log(x + " Wins!");
       row.innerHTML = "<div class='R-box'>RESET</div>";
-      win.innerHTML = `<div class="title-box"><span class="title-text">${x} WINS!</span></div>`;
+      win.innerHTML = `<p class="title-text">${x} WINS!</p>`;
       reset = document.querySelector(".R-box");
       gameReady = false;
       reset.addEventListener("click", resetGame); //resets the game
     } else if (grid[2] === x && grid[4] === x && grid[6] === x) { //diagonal
       console.log(x + " Wins!");
       row.innerHTML = "<div class='R-box'>RESET</div>";
-      win.innerHTML = `<div class="title-box"><span class="title-text">${x} WINS!</span></div>`;
+      win.innerHTML = `<p class="title-text">${x} WINS!</p>`;
       reset = document.querySelector(".R-box");
       gameReady = false;
       reset.addEventListener("click", resetGame); //resets the game
     } else if (grid.indexOf(0) === -1) { //checks for a stalemate
       console.log("Stalemate!");
       row.innerHTML = "<div class='R-box'>RESET</div>";
-      win.innerHTML = '<div class="title-box"><span class="title-text">STALEMATE</span></div>';
+      win.innerHTML = '<p class="title-text">STALEMATE</p>';
       reset = document.querySelector(".R-box");
       gameReady = false;
       reset.addEventListener("click", resetGame); //resets the game
@@ -155,7 +161,7 @@ function ai() { //fn for ai player
     for (var j = 0; j < grid.length; j++) { //checks where a zero is to fill (temporary shitty ai)
       if (grid[j] === 0) {
         grid[j] = letterAI;
-        boxes[j].innerHTML = `<span class=${letterAI}>${letterAI}</span>`;
+        boxes[j].innerHTML = `<span class="${letterAI} ai-text">${letterAI}</span>`;
         checkWin();
         break;
       }
